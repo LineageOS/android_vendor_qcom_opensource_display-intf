@@ -20,7 +20,7 @@
 /*
  * Changes from Qualcomm Innovation Center are provided under the following license:
  *
- * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2022-2025 Qualcomm Innovation Center, Inc. All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 #ifndef __SDM_DISPLAY_LAYER_BUILDER_INTF_H__
@@ -127,6 +127,8 @@ public:
   virtual LayerBufferFormat GetSDMFormat(const int32_t &source,
                                          const int32_t flags,
                                          const int64_t compression_type) = 0;
+  virtual bool CheckLayerBufferBinding(uint64_t display_id, int64_t layer_id,
+                                       const SnapHandle *buffer) = 0;
 };
 
 } // namespace sdm

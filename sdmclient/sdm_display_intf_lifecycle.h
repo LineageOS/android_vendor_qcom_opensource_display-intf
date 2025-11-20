@@ -48,6 +48,11 @@ public:
   SDMDisplayLifeCycleIntf() {}
   virtual ~SDMDisplayLifeCycleIntf(){};
 
+  /**
+   * De-initialize and cleanup sdmclient
+   **/
+  virtual DisplayError Deinit() = 0;
+
   virtual void RegisterSideBandCallback(SDMSideBandCompositorCbIntf *cb,
                                         bool enable) = 0;
 

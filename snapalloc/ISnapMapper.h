@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
@@ -54,6 +54,7 @@ class ISnapMapper {
                                  bool *out) = 0;
   virtual Error RetainViewBuffer(const SnapHandle &in_meta_handle, uint32_t view,
                                  SnapHandle **out_view_handle) = 0;
+  virtual Error GetBaseView(const SnapHandle &in_handle, uint32_t *view) = 0;
 };
 
 }  // namespace snapalloc

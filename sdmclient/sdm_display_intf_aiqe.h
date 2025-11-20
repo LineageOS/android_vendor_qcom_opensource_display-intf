@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
@@ -100,6 +100,21 @@ public:
    */
   virtual DisplayError SetABCMode(uint64_t display_id,
                                   std::string mode_name) = 0;
+
+  /**
+   * Set the AI Scaler with given mode ID on the given display
+   *
+   * @param display_id: The id of the specified display
+   * @param mode: Mode ID to be set for AI Scaler
+   *
+   * @return: kErrorNone if transaction succeeded
+   *
+   * @exception: kErrorParameters if display_id is not found
+   * @exception: kErrorNotSupported if the given AI Scaler mode ID is invalid
+   * @exception: kErrorResources if the display doesn't support AI Scaler
+   */
+  virtual DisplayError SetAIScalerMode(uint64_t display_id,
+                                       uint32_t mode_id) = 0;
 };
 
 } // namespace sdm
