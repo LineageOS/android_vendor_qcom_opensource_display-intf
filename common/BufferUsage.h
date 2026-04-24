@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 
 #ifndef __COMMON_BUFFERUSAGE_H__
@@ -117,6 +117,12 @@ typedef enum vendor_qti_hardware_display_common_BufferUsage : uint64_t {
   QTI_ALLOC_UBWC_L_8_TO_5 = 1ULL << 59,
 
   /* Bit 60 is reserved */
+
+  /* Batch mode commit use case */
+  QTI_PRIVATE_BATCH_COMMIT = 1ULL << 61,
+
+  /* This flag is used to indicate cloned multiview use case */
+  QTI_PRIVATE_CLONED_MULTI_VIEW_INFO = 1ULL << 62,
 } vendor_qti_hardware_display_common_BufferUsage;
 
 inline vendor_qti_hardware_display_common_BufferUsage operator|(

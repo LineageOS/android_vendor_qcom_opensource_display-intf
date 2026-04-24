@@ -21,6 +21,7 @@ class ISnapAlloc {
   virtual Error Allocate(const BufferDescriptor &in_descriptor, int in_count,
                          AllocationResult *allocation_result) = 0;
   virtual Error IsSupported(const BufferDescriptor &in_descriptor, bool *is_supported) = 0;
+  virtual bool IsFormatSupportedByGPU(const BufferDescriptor &in_descriptor) = 0;
 };
 
 }  // namespace snapalloc

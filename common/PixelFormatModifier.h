@@ -21,7 +21,8 @@ typedef enum vendor_qti_hardware_display_common_PixelFormatModifier {
   PIXEL_FORMAT_MODIFIER_EXPLICIT_UBWC = 13,
   PIXEL_FORMAT_MODIFIER_MIPMAP = 14,
   PIXEL_FORMAT_MODIFIER_UBWC_MIPMAP = 15,
-  PIXEL_FORMAT_MODIFIER_1K_ALIGNED = 16
+  PIXEL_FORMAT_MODIFIER_1K_ALIGNED = 16,
+  PIXEL_FORMAT_MODIFIER_4Y_COMPONENT = 17
 } vendor_qti_hardware_display_common_PixelFormatModifier;
 
 #endif  // __COMMON_PIXELFORMATMODIFIER_H__

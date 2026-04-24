@@ -151,6 +151,14 @@ public:
                                      DisplayDrawMethod drawMethod) = 0;
 
   virtual void CompositorSync(CompositorSyncType syncType) = 0;
+
+#ifdef LSR_API
+  virtual DisplayError
+  SetDisplayDeviceConfig(uint64_t display,
+                         SDMDisplayDeviceConfig sdm_display_device_config) {
+    return kErrorNone;
+  };
+#endif
 };
 
 } // namespace sdm

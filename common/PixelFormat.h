@@ -301,6 +301,7 @@ typedef enum vendor_qti_hardware_display_common_PixelFormat : uint32_t {
 
   CbYCrY_422_I = 0x120,
   BGR_888 = 0x121,
+  C_8 = 0x143,
 
   // Camera utils format
   MULTIPLANAR_FLEX = 0x127,

@@ -18,9 +18,8 @@
  */
 
 /*
- * Changes from Qualcomm Innovation Center are provided under the following license:
- *
- * Copyright (c) 2022-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Changes from Qualcomm Technologies, Inc. are provided under the following
+ * license: Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 #ifndef __SDM_DISPLAY_LAYER_BUILDER_INTF_H__
@@ -42,93 +41,194 @@ public:
   virtual ~SDMDisplayLayerBuilderIntf() {}
 
   virtual DisplayError Init(BufferAllocator *buffer_allocator,
-                            uint64_t display_id) = 0;
+                            uint64_t display_id) {
+    return kErrorNone;
+  };
 
-  virtual DisplayError DeInit(uint64_t display_id) = 0;
+  virtual DisplayError DeInit(uint64_t display_id) { return kErrorNone; };
 
-  virtual DisplayError CreateLayer(uint64_t display_id,
-                                   int64_t *out_layer_id) = 0;
+  virtual DisplayError CreateLayer(uint64_t display_id, int64_t *out_layer_id) {
+    return kErrorNone;
+  };
 
-  virtual DisplayError DestroyLayer(uint64_t display_id, int64_t layer_id) = 0;
+  virtual DisplayError DestroyLayer(uint64_t display_id, int64_t layer_id) {
+    return kErrorNone;
+  };
 
-  virtual DisplayError SetLayerBuffer(uint64_t display_id, int64_t layer_id, const SnapHandle *buffer,
-                             const shared_ptr<Fence> &acquire_fence) = 0;
+  virtual DisplayError SetLayerBuffer(uint64_t display_id, int64_t layer_id,
+                                      const SnapHandle *buffer,
+                                      const shared_ptr<Fence> &acquire_fence) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerBlendMode(uint64_t display_id, int64_t layer_id,
-                                         int32_t int_mode) = 0;
+                                         int32_t int_mode) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerDisplayFrame(uint64_t display_id,
-                                            int64_t layer_id,
-                                            SDMRect frame) = 0;
+                                            int64_t layer_id, SDMRect frame) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerPlaneAlpha(uint64_t display_id, int64_t layer_id,
-                                          float alpha) = 0;
+                                          float alpha) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerSourceCrop(uint64_t display_id, int64_t layer_id,
-                                          SDMRect crop) = 0;
+                                          SDMRect crop) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerTransform(uint64_t display_id, int64_t layer_id,
-                                         SDMTransform transform) = 0;
+                                         SDMTransform transform) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerZOrder(uint64_t display_id, int64_t layer_id,
-                                      uint32_t z) = 0;
+                                      uint32_t z) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerType(uint64_t display_id, int64_t layer_id,
-                                    SDMLayerTypes type) = 0;
+                                    SDMLayerTypes type) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerFlag(uint64_t display_id, int64_t layer_id,
-                                    SDMLayerFlag flag) = 0;
+                                    SDMLayerFlag flag) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerSurfaceDamage(uint64_t display_id,
                                              int64_t layer_id,
-                                             SDMRegion damage) = 0;
+                                             SDMRegion damage) {
+    return kErrorNone;
+  };
   virtual DisplayError SetLayerVisibleRegion(uint64_t display_id,
                                              int64_t layer_id,
-                                             SDMRegion damage) = 0;
+                                             SDMRegion damage) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerCompositionType(uint64_t display_id,
                                                int64_t layer_id,
-                                               int32_t int_type) = 0;
+                                               int32_t int_type) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerColor(uint64_t display_id, int64_t layer_id,
-                                     SDMColor color) = 0;
+                                     SDMColor color) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerDataspace(uint64_t display_id, int64_t layer_id,
-                                         int32_t dataspace) = 0;
+                                         int32_t dataspace) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerPerFrameMetadata(uint64_t display_id,
                                                 int64_t layer_id,
                                                 uint32_t num_elements,
                                                 const int32_t *int_keys,
-                                                const float *metadata) = 0;
+                                                const float *metadata) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerColorTransform(uint64_t display_id,
                                               int64_t layer_id,
-                                              const float *matrix) = 0;
+                                              const float *matrix) {
+    return kErrorNone;
+  };
 
-  virtual DisplayError
-  SetLayerPerFrameMetadataBlobs(uint64_t display_id, int64_t layer_id,
-                                uint32_t num_elements, const int32_t *int_keys,
-                                const uint32_t *sizes,
-                                const uint8_t *metadata) = 0;
+  virtual DisplayError SetLayerPerFrameMetadataBlobs(
+      uint64_t display_id, int64_t layer_id, uint32_t num_elements,
+      const int32_t *int_keys, const uint32_t *sizes, const uint8_t *metadata) {
+    return kErrorNone;
+  };
 
   virtual DisplayError SetLayerBrightness(uint64_t display_id, int64_t layer_id,
-                                          float brightness) = 0;
+                                          float brightness) {
+    return kErrorNone;
+  };
 
-  virtual DisplayError SetLayerAsMask(uint64_t display_id,
-                                      int64_t layer_id) = 0;
+  virtual DisplayError SetLayerAsMask(uint64_t display_id, int64_t layer_id) {
+    return kErrorNone;
+  };
 
   virtual SDMCompositionType
-  GetDeviceSelectedCompositionType(uint64_t display_id, int64_t layer_id) = 0;
+  GetDeviceSelectedCompositionType(uint64_t display_id, int64_t layer_id) {
+    return COMP_INVALID;
+  };
 
   virtual DisplayError SetCursorPosition(uint64_t disp_id, int64_t layer_id,
-                                         int32_t x, int32_t y) = 0;
+                                         int32_t x, int32_t y) {
+    return kErrorNone;
+  };
 
   virtual LayerBufferFormat GetSDMFormat(const int32_t &source,
                                          const int32_t flags,
-                                         const int64_t compression_type) = 0;
+                                         const int64_t compression_type) {
+    return kFormatInvalid;
+  };
   virtual bool CheckLayerBufferBinding(uint64_t display_id, int64_t layer_id,
-                                       const SnapHandle *buffer) = 0;
+                                       const SnapHandle *buffer) {
+    return false;
+  };
+
+  virtual DisplayError
+  SetLayerPrivacyRegions(uint64_t display_id, int64_t layer_id,
+                         const std::vector<PrivacyRegion> &privacy_regions) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError SetLayerCornerRadius(uint64_t display_id,
+                                            int64_t layer_id,
+                                            CornerRadius corner_radius) {
+    return kErrorNone;
+  };
+
+#ifdef LSR_API
+  virtual DisplayError SetRenderLayerReferenceSpaceType(
+      uint64_t display, int64_t layer,
+      SDMRenderLayerReferenceSpaceType reference_layer_space_type) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError
+  SetCompositionLayerType(uint64_t display, int64_t layer,
+                          SDMCompositionLayerType comp_layer_type) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError SetLayerPose(uint64_t display, int64_t layer,
+                                    SDMLayerPose layer_pose) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError SetLayerQuadSize(uint64_t display, int64_t layer,
+                                        SDMLayerQuadSize layer_quad_size) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError SetLayerFrustum(uint64_t display, int64_t layer,
+                                       SDMLayerFrustum layer_frustum) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError
+  SetLayerPlaneEquation(uint64_t display, int64_t layer,
+                        SDMLayerPlaneEquation plane_equation) {
+    return kErrorNone;
+  };
+
+  virtual DisplayError
+  SetLayerVisibilityType(uint64_t display, int64_t layer,
+                         SDMLayerVisibilityType layer_visibility_type) {
+    return kErrorNone;
+  };
+#endif
 };
 
 } // namespace sdm

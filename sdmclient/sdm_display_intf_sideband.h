@@ -18,9 +18,9 @@
  */
 
 /*
- * Changes from Qualcomm Innovation Center are provided under the following license:
+ * Changes from Qualcomm Technologies, Inc. are provided under the following license:
  *
- * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries. 
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 #ifndef __SDM_DISPLAY_INTF_SIDEBAND_H__
@@ -75,6 +75,10 @@ public:
 
   virtual DisplayError NotifyCallback(uint32_t command, SDMParcel *input_parcel,
                                       SDMParcel *output_parcel) = 0;
+
+  virtual DisplayError SetPoseConfig(uint64_t disp_id, void *buffer) {
+    return kErrorNone;
+  }
 };
 
 } //  namespace sdm

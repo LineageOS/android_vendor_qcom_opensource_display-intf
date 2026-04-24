@@ -14,11 +14,29 @@ public:
   using SDMDisplayDrawCycleIntf::SetClientTarget;
   virtual ~SDMDisplayDrawCycleIntfV2() {}
 
+  virtual DisplayError SetClientTarget(uint64_t display,
+                                       const SnapHandle *target,
+                                       shared_ptr<Fence> acquire_fence,
+                                       int32_t dataspace,
+                                       const SDMRegion &damage,
+                                       uint32_t version, float hdr_sdr_ratio) {
+    return kErrorNone;
+  };
+  virtual DisplayError GetDisplayLuts(
+      uint64_t display,
+      std::unique_ptr<std::vector<std::pair<LayerId, Lut3d *>>> &out_luts) {
+    return kErrorNone;
+  };
   virtual DisplayError
-  SetClientTarget(uint64_t display, const SnapHandle *target,
-                  shared_ptr<Fence> acquire_fence, int32_t dataspace,
-                  const SDMRegion &damage, uint32_t version,
-                  float hdr_sdr_ratio) = 0;
+  GetBufferLuts(uint64_t display, const std::vector<SnapHandle *> &buffers,
+                std::unique_ptr<std::vector<Lut3d *>> &out_luts) {
+    return kErrorNone;
+  };
+  virtual DisplayError
+  ClearBuffersMappedToLayer(uint64_t display, LayerId layer_id,
+                            const SnapHandle *layerBuffer) {
+    return kErrorNone;
+  }
 };
 
 } // namespace sdm
